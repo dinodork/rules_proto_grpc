@@ -47,7 +47,6 @@ def proto_compile_impl(ctx):
 
     Args:
         ctx: The Bazel rule execution context object.
-
     Returns:
         Providers:
             - ProtoCompileInfo
@@ -74,6 +73,9 @@ def proto_compile(ctx, options, extra_protoc_args, extra_protoc_files, extra_pro
         options: The mutable options dict.
         extra_protoc_args: The mutable extra_protoc_args list.
         extra_protoc_files: The mutable extra_protoc_files list.
+        extra_protoc_outputs: List of unqualified filenames to be declared as
+            output from protoc. This can be used when the protoc plugin is
+            known to produce more than one output file per .proto file.
 
     Returns:
         Providers:
